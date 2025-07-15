@@ -1,6 +1,3 @@
-Sure! Here's a clear README.md you can use for your Rust JWKS JWT validator project:
-
-````markdown
 # Rust JWT Validator with JWKS Support
 
 This project demonstrates how to validate JWT tokens signed with RSA keys fetched dynamically from a JWKS endpoint in Rust using Actix Web.
