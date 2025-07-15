@@ -11,7 +11,6 @@ This project demonstrates how to validate JWT tokens signed with RSA keys fetche
 - Verify JWT signature using `jsonwebtoken` crate
 - Validate standard claims: `sub`, `aud`, `iss`, `exp`
 - Simple Actix Web endpoint `/secure` that requires a valid JWT bearer token
-
 ---
 
 ## Prerequisites
@@ -19,21 +18,17 @@ This project demonstrates how to validate JWT tokens signed with RSA keys fetche
 - Rust and Cargo installed: https://rustup.rs/
 - A running JWKS server exposing keys at: `http://localhost:3000/.well-known/jwks.json`
 - A JWT token signed with a private key matching the JWKS public keys
-
 ---
 
 ## Running the JWKS Mock Server
 
-If you don't have a JWKS server, you can run a simple Node.js mock server:
+Run the simple Node.js mock server:
 
-1. Initialize project and install dependencies:
+1. Install dependencies:
 
    ```bash
-   npm init -y
-   npm install express jose
-````
-
-2. Create `server.js` with JWKS serving logic (example in your project folder).
+   npm i
+   ```
 
 3. Run the server:
 
@@ -41,33 +36,17 @@ If you don't have a JWKS server, you can run a simple Node.js mock server:
    node server.js
    ```
 
-It will expose JWKS at `http://localhost:3000/.well-known/jwks.json`.
+This will:
 
+* Expose the JWKS at:
+  `http://localhost:3000/.well-known/jwks.json`
+* Provide a test JWT token at:
+  `http://localhost:3000/token`
 ---
 
 ## Running the Rust JWT Validator Server
 
-1. Clone this repository (or create your Rust project):
-
-   ```bash
-   git clone <your_repo_url>
-   cd rust_authenticator
-   ```
-
-2. Make sure your `Cargo.toml` has dependencies:
-
-   ```toml
-   [dependencies]
-   actix-web = "4"
-   serde = { version = "1", features = ["derive"] }
-   serde_json = "1"
-   jsonwebtoken = "9.3.1"
-   reqwest = { version = "0.11", features = ["json"] }
-   tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
-   base64 = "0.21"
-   ```
-
-3. Run the Rust server:
+1. Run the Rust server:
 
    ```bash
    cargo run
